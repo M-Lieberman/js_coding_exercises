@@ -68,7 +68,7 @@ function getMeanScore(scores) {
   // add to total and divide by number of elements
   let total = 0;
   for (let i=0; i < scores.length; i++) {
-    total = total + scores[i];
+    total += scores[i];
   }
   return Math.round((total/scores.length) * 100) / 100;
   
