@@ -1,14 +1,12 @@
 function capitalize(word) {
   if (word === undefined) throw new Error("word is required");
-  // Add your code here!
-  var upCase = word.charAt(0).toUpperCase() + word.slice(1);
-  return upCase;
+  return word.charAt(0).toUpperCase() + word.slice(1);
 }
 
 function generateInitials(firstName, lastName) {
   if (firstName === undefined) throw new Error("firstName is required");
   if (lastName === undefined) throw new Error("lastName is required");
-  // Add your code here!
+  return firstName.charAt(0) + '.' + lastName.charAt(0);
 }
 
 function addVAT(originalPrice, vatRate) {
@@ -25,7 +23,7 @@ function getSalePrice(originalPrice, reduction) {
 
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
-  // Add your code here!
+  // Add your code here!-
 }
 
 function reverseWord(word) {
