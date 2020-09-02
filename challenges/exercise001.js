@@ -54,15 +54,15 @@ function reverseAllWords(words) {
 
 function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
-  // loop through users
+  // foreach loop through users
   // increment counter if type = linux
   // return counter total
   let counter = 0;
-  for (let i =0; i < users.length; i++) {
-    if (users[i].type == 'Linux') {
+  users.forEach(function (user) {
+    if (user.type == 'Linux') {
       counter++;
     }
-  }
+  });
   return counter;
 }
 
