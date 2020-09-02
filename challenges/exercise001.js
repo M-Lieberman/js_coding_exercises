@@ -64,11 +64,9 @@ function countLinuxUsers(users) {
 
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
-  // use a reduce function to reduce the array to an accumulated total
+  // use a reduce arrow function to reduce the array to an accumulated total
   // divide the total by number of elements
-  let total = scores.reduce(function(total, score) {
-    return total + score;
-  }, 0);
+  let total = scores.reduce((total, score) => total + score, 0);
   return Math.round((total/scores.length) * 100) / 100;
 }
 
