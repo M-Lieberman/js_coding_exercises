@@ -1,5 +1,6 @@
 function capitalize(word) {
   if (word === undefined) throw new Error("word is required");
+  // substring vs substr vs slice? Seems to produce the same result here
   return word.charAt(0).toUpperCase() + word.slice(1);
 }
 
@@ -12,7 +13,9 @@ function generateInitials(firstName, lastName) {
 function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
-  // Add your code here!
+  let vat = (vatRate / 100) * originalPrice;
+  let  priceIncludingVat = originalPrice + vat;
+  return Math.round((priceIncludingVat) *100) / 100;
 }
 
 function getSalePrice(originalPrice, reduction) {
