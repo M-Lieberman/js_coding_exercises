@@ -72,7 +72,20 @@ function getMeanScore(scores) {
 
 function simpleFizzBuzz(n) {
   if (n === undefined) throw new Error("n is required");
-  // Add your code here!
+  // return fizzbuzz if divisible by 3 and 5
+  // return fizz if divisible by 3
+  // return buzz if divisible by 5
+  // return number if not divisible by 3 or 5
+  if (n % 3 == 0 && n % 5 == 0) {
+    return 'fizzbuzz';
+  } else if (n % 3 == 0) {
+    return 'fizz';
+  } else if (n % 5 == 0) {
+    return 'buzz';
+  } else {
+    return n;
+  }
+
 }
 
 module.exports = {
