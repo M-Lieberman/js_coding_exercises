@@ -28,7 +28,7 @@ describe("findNextNumber", () => {
   });
 });
 
-describe("count1sand0s", () => {
+xdescribe("count1sand0s", () => {
   test("returns an object with the count of 1s and 0s in a string", () => {
     expect(count1sand0s("11000")).toEqual({
       1: 2,
@@ -52,7 +52,7 @@ describe("count1sand0s", () => {
   });
 });
 
-describe("reverseNumber", () => {
+xdescribe("reverseNumber", () => {
   test("reverses the digits of a number", () => {
     expect(reverseNumber(5)).toBe(5);
     expect(reverseNumber(104)).toBe(401);
@@ -61,14 +61,14 @@ describe("reverseNumber", () => {
   });
 });
 
-describe("sumArrays", () => {
+xdescribe("sumArrays", () => {
   test("returns the total of the numbers in all sub arrays", () => {
     const arrs = [[1, 2, 3], [6, 3, 1], [1], [9, 10], [3, 5]];
     expect(sumArrays(arrs)).toBe(44);
   });
 });
 
-describe("arrShift", () => {
+xdescribe("arrShift", () => {
   test("returns an array with the first and last items swapped", () => {
     expect(arrShift([1, 2])).toEqual([2, 1]);
     expect(arrShift([1, 2, 3])).toEqual([3, 2, 1]);
@@ -81,7 +81,7 @@ describe("arrShift", () => {
   });
 });
 
-describe("findNeedle", () => {
+xdescribe("findNeedle", () => {
   test("returns true if any of the properties of an object contain the specified string", () => {
     const obj1 = {
       name: "LINNMON",
@@ -139,7 +139,7 @@ describe("findNeedle", () => {
   });
 });
 
-describe("getWordFrequencies", () => {
+xdescribe("getWordFrequencies", () => {
   test("returns the frequencies of each word in a string", () => {
     expect(getWordFrequencies("hello world")).toEqual({
       hello: 1,
