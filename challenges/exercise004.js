@@ -1,93 +1,68 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
-  let smlNums = [];
-  nums.forEach(function (num) {
-    if (num < 1) {
-      smlNums.push(num);
-    }
+  return nums.filter(function (num) {
+    return num < 1;
   });
-  return smlNums;
+
 }
 
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
-  let found = [];
-  names.forEach(function (name) {
-    if (name.charAt(0) == char) {
-      found.push(name);
-    }
+  return names.filter(function (name) {
+    return (name.charAt(0) == char);
   });
-  return found;
 }
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
   // to something
-  let verbs = [];
-  words.forEach(function (word) {
-    if (word.length > 3 && word.slice(0, 3) === 'to ') {
-      verbs.push(word);
-    }
+  return words.filter(function (word) {
+    return word.length > 3 && word.slice(0, 3) === 'to ';
   });
-  return verbs;
 }
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  let ints = [];
-  nums.forEach(function (num) {
-    if (Number.isInteger(num)) {
-      ints.push(num);
-    }
+  return nums.filter(function (num) {
+    return Number.isInteger(num);
   });
-  return ints;
 }
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
-  let cities = [];
-  users.forEach(function (user) {
-    cities.push(user.data.city.displayName);
+  return users.map(function (user) {
+    return user.data.city.displayName;
   });
-  return cities;
 }
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
-  let sqrts = [];
-  nums.forEach(function (num) {
-    let sqrt = Math.round(Math.sqrt(num) * 100) / 100;
-    sqrts.push(sqrt);
-  })
-  return sqrts;
+  return nums.map(function (num) {
+    return Math.round(Math.sqrt(num) * 100) / 100;
+  });
 }
 
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
-  let found = [];
-  sentences.forEach(function (sentence) {
-    if (sentence.toUpperCase().indexOf(str.toUpperCase()) !== -1) {
-      found.push(sentence);
-    }
+  return sentences.filter(function (sentence) {
+    return sentence.toUpperCase().indexOf(str.toUpperCase()) !== -1;
   });
-  return found;
 }
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  let sides = [];
-  triangles.forEach(function (triangle) {
+  return triangles.map(function (triangle) {
     let longest = 0;
+    // for some reason Math.max() returns NaN here so I'm doing this the long way 
     triangle.forEach(function (side) {
       if (side > longest) {
         longest = side;
       }
     });
-    sides.push(longest);
+    return longest;
   });
-  return sides;
 }
 
 module.exports = {
