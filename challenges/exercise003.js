@@ -7,8 +7,13 @@ function getSquares(nums) {
 
 function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
-  // join words together, intial caps on all words after the first
-
+  // make the first word lowercase, then add the remaining with initial caps
+  let word = words[0].toLowerCase();
+  // loop through remaining
+  for (let i = 1; i < words.length; i++) {
+    word += words[i].charAt(0).toUpperCase() + words[i].slice(1);
+  }
+  return word;
 }
 
 function getTotalSubjects(people) {

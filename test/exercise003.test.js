@@ -6,7 +6,7 @@ const {
   duplicateNumbers
 } = require("../challenges/exercise003");
 
-xdescribe("camelCaseWords", () => {
+describe("camelCaseWords", () => {
   test("camel cases a single word (i.e. no capital letter at beginning)", () => {
     expect(camelCaseWords(["my"])).toBe("my");
   });
