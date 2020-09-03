@@ -8,6 +8,8 @@ function getFillings(sandwich) {
 function isFromManchester(person) {
   if (person === undefined) throw new Error("person is required");
   // Your code here!
+  // city 
+  return person.city == 'Manchester';
 }
 
 function getBusNumbers(people) {
