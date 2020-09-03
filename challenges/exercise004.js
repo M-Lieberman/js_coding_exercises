@@ -56,6 +56,7 @@ function getLongestSides(triangles) {
   return triangles.map(function (triangle) {
     let longest = 0;
     // for some reason Math.max() returns NaN here so I'm doing this the long way 
+    // though this could be done using Array.reduce
     triangle.forEach(function (side) {
       if (side > longest) {
         longest = side;
