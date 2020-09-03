@@ -7,7 +7,16 @@ const findNextNumber = (nums, n) => {
 
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
-  // Your code here!
+  // test assume 1 is first so initialise the object in that order
+  let freq = {
+    '1': 0,
+    '0': 0
+  };
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+    freq[char] += 1;
+  }
+  return freq;
 };
 
 const reverseNumber = n => {

@@ -28,7 +28,7 @@ describe("findNextNumber", () => {
   });
 });
 
-xdescribe("count1sand0s", () => {
+describe("count1sand0s", () => {
   test("returns an object with the count of 1s and 0s in a string", () => {
     expect(count1sand0s("11000")).toEqual({
       1: 2,
