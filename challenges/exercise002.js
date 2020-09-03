@@ -1,6 +1,8 @@
 function getFillings(sandwich) {
   if (sandwich === undefined) throw new Error("ingredients is required");
-  // Your code here!
+  // filling is an array
+  // read in sandwich and return filling array
+  return sandwich.fillings;
 }
 
 function isFromManchester(person) {

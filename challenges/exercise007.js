@@ -17,6 +17,8 @@ const sumDigits = n => {
 const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
+  // added this to prevent eslint error
+  if (step === undefined) throw new Error("step is required");
 };
 
 /**
