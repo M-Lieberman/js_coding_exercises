@@ -8,7 +8,7 @@ const findNextNumber = (nums, n) => {
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
   // test assume 1 is first so initialise the object in that order
-  let freq = {
+  const freq = {
     '1': 0,
     '0': 0
   };
@@ -21,7 +21,7 @@ const count1sand0s = str => {
 
 const reverseNumber = n => {
   if (n === undefined) throw new Error("n is required");
-  // Your code here!
+  return parseFloat(n.toString().split('').reverse().join(''));
 };
 
 const sumArrays = arrs => {

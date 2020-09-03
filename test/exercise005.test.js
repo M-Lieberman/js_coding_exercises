@@ -52,7 +52,7 @@ describe("count1sand0s", () => {
   });
 });
 
-xdescribe("reverseNumber", () => {
+describe("reverseNumber", () => {
   test("reverses the digits of a number", () => {
     expect(reverseNumber(5)).toBe(5);
     expect(reverseNumber(104)).toBe(401);
