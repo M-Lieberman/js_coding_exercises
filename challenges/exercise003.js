@@ -3,9 +3,7 @@ function getSquares(nums) {
   // square each number in an array
   // array may be empty
   let sqrs = [];
-  nums.forEach(function (num) {
-    sqrs.push(num * num);
-  });
+  nums.forEach((num) => sqrs.push(num * num));
   return sqrs;
 }
 
