@@ -1,11 +1,11 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
   let smlNums = [];
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] < 1) {
-      smlNums.push(nums[i]);
+  nums.forEach(function (num) {
+    if (num < 1) {
+      smlNums.push(num);
     }
-  }
+  });
   return smlNums;
 }
 
@@ -13,11 +13,11 @@ function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
   let found = [];
-  for (let i = 0; i < names.length; i++) {
-    if (names[i].charAt(0) == char) {
-      found.push(names[i]);
+  names.forEach(function (name) {
+    if (name.charAt(0) == char) {
+      found.push(name);
     }
-  }
+  });
   return found;
 }
 
@@ -25,69 +25,68 @@ function findVerbs(words) {
   if (!words) throw new Error("words is required");
   // to something
   let verbs = [];
-  for (let i = 0; i < words.length; i++) {
-    if (words[i].length > 3 && words[i].slice(0, 3) === 'to ') {
-      verbs.push(words[i]);
+  words.forEach(function (word) {
+    if (word.length > 3 && word.slice(0, 3) === 'to ') {
+      verbs.push(word);
     }
-  }
+  });
   return verbs;
 }
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
   let ints = [];
-  for (let i = 0; i < nums.length; i++) {
-    if (Number.isInteger(nums[i])) {
-      ints.push(nums[i]);
+  nums.forEach(function (num) {
+    if (Number.isInteger(num)) {
+      ints.push(num);
     }
-  }
+  });
   return ints;
 }
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
   let cities = [];
-  for (let i = 0; i < users.length; i++) {
-    cities.push(users[i].data.city.displayName);
-  }
+  users.forEach(function (user) {
+    cities.push(user.data.city.displayName);
+  });
   return cities;
 }
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
   let sqrts = [];
-  for (let i = 0; i < nums.length; i++) {
-    let sqrt = Math.round(Math.sqrt(nums[i]) * 100) / 100;
+  nums.forEach(function (num) {
+    let sqrt = Math.round(Math.sqrt(num) * 100) / 100;
     sqrts.push(sqrt);
-  }
+  })
   return sqrts;
 }
 
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
-  let sentence = [];
-  for (let i = 0; i < sentences.length; i++) {
-    if (sentences[i].toUpperCase().indexOf(str.toUpperCase()) !== -1) {
-      sentence.push(sentences[i]);
+  let found = [];
+  sentences.forEach(function (sentence) {
+    if (sentence.toUpperCase().indexOf(str.toUpperCase()) !== -1) {
+      found.push(sentence);
     }
-  }
-  return sentence;
+  });
+  return found;
 }
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
   let sides = [];
-  for (let i = 0; i < triangles.length; i++) {
-    let triangle = triangles[i];
+  triangles.forEach(function (triangle) {
     let longest = 0;
-    for (let j = 0; j < triangle.length; j++) {
-      if (triangle[j] > longest) {
-        longest = triangle[j];
+    triangle.forEach(function (side) {
+      if (side > longest) {
+        longest = side;
       }
-    }
+    });
     sides.push(longest);
-  }
+  });
   return sides;
 }
 
