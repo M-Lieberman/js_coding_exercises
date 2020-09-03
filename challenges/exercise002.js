@@ -20,10 +20,9 @@ function getBusNumbers(people) {
 
 function countSheep(arr) {
   if (arr === undefined) throw new Error("arr is required");
-  let sheep = arr.filter(function(animal) {
-    return animal == 'sheep';
-  });
-  return sheep.length;
+  // return the length of the filtered array
+  return arr.filter(animal => animal == 'sheep').length;
+  
 }
 
 function hasMPostCode(person) {
