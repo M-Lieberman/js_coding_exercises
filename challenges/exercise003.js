@@ -1,15 +1,14 @@
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
-  // square each number in an array
-  // array may be empty
   let sqrs = [];
-  nums.forEach((num) => sqrs.push(num * num));
+  nums.map((num) => sqrs.push(Math.pow(num, 2)));
   return sqrs;
 }
 
 function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
-  // Your code here!
+  // join words together, intial caps on all words after the first
+
 }
 
 function getTotalSubjects(people) {
