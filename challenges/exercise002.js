@@ -22,7 +22,6 @@ function countSheep(arr) {
   if (arr === undefined) throw new Error("arr is required");
   // return the length of the filtered array
   return arr.filter(animal => animal == 'sheep').length;
-  
 }
 
 function hasMPostCode(person) {

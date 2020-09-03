@@ -15,21 +15,21 @@ function addVAT(originalPrice, vatRate) {
   if (vatRate === undefined) throw new Error("vatRate is required");
   let vat = (vatRate / 100) * originalPrice;
   let priceIncludingVat = originalPrice + vat;
-  return Math.round((priceIncludingVat) *100) / 100;
+  return Math.round((priceIncludingVat) * 100) / 100;
 }
 
 function getSalePrice(originalPrice, reduction) {
   if (originalPrice === undefined) throw new Error("originalPrice is required");
   if (reduction === undefined) throw new Error("reduction is required");
   let reductionAmount = originalPrice * (reduction / 100);
-  return  Math.round((originalPrice - reductionAmount) * 100) / 100;
+  return Math.round((originalPrice - reductionAmount) * 100) / 100;
 }
 
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
   let middlePosition = Math.abs(str.length / 2);
   if (str.length % 2 == 0) {
-    return str.substr(middlePosition-1, 2);
+    return str.substr(middlePosition - 1, 2);
   } else {
     return str.charAt(middlePosition);
   }
@@ -67,7 +67,7 @@ function getMeanScore(scores) {
   // use a reduce arrow function to reduce the array to an accumulated total
   // divide the total by number of elements
   let total = scores.reduce((total, score) => total + score, 0);
-  return Math.round((total/scores.length) * 100) / 100;
+  return Math.round((total / scores.length) * 100) / 100;
 }
 
 function simpleFizzBuzz(n) {
