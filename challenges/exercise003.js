@@ -30,13 +30,16 @@ function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required");
   if (!ingredient) throw new Error("ingredient is required");
   // array.some checks for any value matching the expression
-  return menu.some((dish) => dish.ingredients.indexOf(ingredient) > -1);
+  return menu.some((dish) => dish.ingredients.indexOf(ingredient) !== -1);
 }
 
 function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
-  // Your code here!
+  // return duplicate numbers in ascending order (without duplicates)
+  // find matching numbers in arr1
+  let result = arr1.filter(element => arr2.includes(element)).sort();
+  return [...new Set(result)];
 }
 
 module.exports = {
