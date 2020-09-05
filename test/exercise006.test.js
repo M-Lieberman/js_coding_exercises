@@ -1,8 +1,8 @@
 const {
     sumMultiples,
     isValidDNA,
-    getComplementaryDNA
-    // isItPrime,
+    getComplementaryDNA,
+    isItPrime
     // createMatrix,
     // areWeCovered
 } = require("../challenges/exercise006");
@@ -117,3 +117,53 @@ describe("getComplementaryDNA", () => {
     });
 });
 
+// This function should receive a number and return true/false depending on whether it is a prime number or not. 
+// A prime number is a number that can only be divided evenly by 1 and itself (for example, 7)
+describe("isItPrime", () => {
+    test("return error with an empty argument", () => {
+        expect(() => {
+            isItPrime();
+        }).toThrow("n is required");
+    });
+    test("return error with a non number argument", () => {
+        expect(() => {
+            isItPrime('foo');
+        }).toThrow("a number is required");
+        expect(() => {
+            isItPrime(['foo']);
+        }).toThrow("a number is required");
+        expect(() => {
+            isItPrime(true);
+        }).toThrow("a number is required");
+    });
+    test("return true for prime number", () => {
+        expect(isItPrime(2)).toBe(true);
+        expect(isItPrime(7)).toBe(true);
+        expect(isItPrime(13)).toBe(true);
+        expect(isItPrime(43)).toBe(true);
+        expect(isItPrime(97)).toBe(true);
+        expect(isItPrime(613)).toBe(true);
+        expect(isItPrime(797)).toBe(true);
+    });
+    test("return false for 1", () => {
+        expect(isItPrime(1)).toBe(false);
+    });
+    test("return false for zero", () => {
+        expect(isItPrime(0)).toBe(false);
+    });
+    test("return false for non-prime numbers", () => {
+        expect(isItPrime(12)).toBe(false);
+        expect(isItPrime(100)).toBe(false);
+        expect(isItPrime(9999)).toBe(false);
+    });
+    test("return false for fractions", () => {
+        expect(isItPrime(0.5)).toBe(false);
+    });
+    test("return false for negative numbers", () => {
+        expect(isItPrime(-7)).toBe(false);
+        expect(isItPrime(-0)).toBe(false);  // negative zero!
+    });
+
+
+
+});
