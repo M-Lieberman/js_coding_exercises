@@ -1,5 +1,10 @@
 const {
-    sumMultiples
+    sumMultiples,
+    isValidDNA
+    // getComplementaryDNA,
+    // isItPrime,
+    // createMatrix,
+    // areWeCovered
 } = require("../challenges/exercise006");
 
 // This function will receive an array of numbers and should return the sum
@@ -31,10 +36,37 @@ describe("sumMultiples", () => {
             sumMultiples(42);
         }).toThrow("an array is required");
     });
-
 });
 
-// This function will receive a string of characters 
-//and should return true/false depending on whether it is
-// a valid DNA string. 
-//A valid DNA string may contain characters C, G, T or A only.
+// This function will receive a string of characters and should return true/false depending on whether it is a valid DNA string. A valid DNA string may contain characters C, G, T or A only.
+describe("isValidDNA", () => {
+    test("return error with an empty argument", () => {
+        expect(() => {
+            isValidDNA();
+        }).toThrow("str is required");
+    });
+    test("return error with a non string argument", () => {
+        expect(() => {
+            isValidDNA(42);
+        }).toThrow("a string is required");
+        expect(() => {
+            isValidDNA(['foo']);
+        }).toThrow("a string is required");
+        expect(() => {
+            isValidDNA(true);
+        }).toThrow("a string is required");
+    });
+    test("return true for valid DNA", () => {
+        expect(isValidDNA('GATTACA')).toBe(true);
+    });
+    test("return false for all invalid DNA", () => {
+        expect(isValidDNA('BONOBO')).toBe(false);
+    });
+    test("return false for including invalid DNA", () => {
+        expect(isValidDNA('ABACUS')).toBe(false);
+    });
+    test("return false for lowercase", () => {
+        expect(isValidDNA('Gattaca')).toBe(false);
+    });
+
+});

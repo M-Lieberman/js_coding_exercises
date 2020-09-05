@@ -25,6 +25,12 @@ const sumMultiples = arr => {
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  if (typeof str !== 'string') throw new Error("a string is required");
+  // use regex to shrink the string to 
+  let re = new RegExp('[ACGT]*');
+  const replaced = str.replace(re, '');
+  console.log("================L:> " + replaced);
+  return replaced.length === 0;
 };
 
 /**
