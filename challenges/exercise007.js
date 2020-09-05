@@ -66,6 +66,32 @@ const createRange = (start, end, step) => {
 const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
+  // should we check for invalid date type here? 
+  const maxScreentime = 100;
+
+  let result = [];
+  users.forEach((user) => {
+    const matched = user.screenTime.filter((screentime) => {
+      console.log(new Date(screentime.date).getTime());
+      return new Date(date).getTime() === new Date(screentime.date).getTime();
+
+    });
+    // matched contains the matching screentime rows for a user
+    // e.g. { date: "2019-05-02", usage: { twitter: 56, instagram: 40, facebook: 31 } },
+    let time = 0;
+    matched.forEach((screentime) => {
+      const usage = screentime.usage;
+      for (let key in usage) {
+        time += usage[key];
+      }
+      return time;
+    });
+    // add the username to the results if over the maximum allowed screentime
+    if (time > maxScreentime) {
+      result.push(user.username);
+    }
+  });
+  return result;
 };
 
 /**
