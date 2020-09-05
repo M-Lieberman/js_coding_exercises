@@ -2,8 +2,8 @@ const {
     sumMultiples,
     isValidDNA,
     getComplementaryDNA,
-    isItPrime
-    // createMatrix,
+    isItPrime,
+    createMatrix,
     // areWeCovered
 } = require("../challenges/exercise006");
 
@@ -163,7 +163,70 @@ describe("isItPrime", () => {
         expect(isItPrime(-7)).toBe(false);
         expect(isItPrime(-0)).toBe(false);  // negative zero!
     });
+});
+/**
+ * This function should receive a number and return an array of n arrays, each filled with n items. 
+ * The parameter "fill" should be used as the filler of the arrays. 
+ * For example, given parameters 3 and "foo" the resulting matrix should be:
+ * [
+ *   ["foo", "foo", "foo"],
+ *   ["foo", "foo", "foo"],
+ *   ["foo", "foo", "foo"]
+ * ]
+ * @param {Number} n
+ * @param {Any} fill
+ * @returns {Array}
+ */
+describe("createMatrix", () => {
+    test("return error with an empty arguments", () => {
+        expect(() => { createMatrix(); }).toThrow("n is required");
+        expect(() => { createMatrix(3); }).toThrow("fill is required");
+        expect(() => { createMatrix('foo'); }).toThrow("a number is required");
+    });
+    test("return error if n is not a positive integer (no fractions, negative numbers or zero)", () => {
+        expect(() => { createMatrix(0); }).toThrow("n must be a positive integer");
+        expect(() => { createMatrix(-2); }).toThrow("n must be a positive integer");
+        expect(() => { createMatrix(3.5); }).toThrow("n must be a positive integer");
+    });
 
-
-
+    test("return array with one element", () => {
+        const array1x1 = [
+            ['foo']
+        ];
+        expect(createMatrix(1, 'foo')).toEqual(array1x1);
+    });
+    test("return array with multiple elements", () => {
+        const array2x2 = [
+            ['foo', 'foo'],
+            ['foo', 'foo']
+        ];
+        expect(createMatrix(2, 'foo')).toEqual(array2x2);
+    });
+    test("return array with multiple elements", () => {
+        const array3x3 = [
+            ['baa baa', 'baa baa', 'baa baa'],
+            ['baa baa', 'baa baa', 'baa baa'],
+            ['baa baa', 'baa baa', 'baa baa']
+        ];
+        expect(createMatrix(3, 'baa baa')).toEqual(array3x3);
+    });
+    test("return array with multiple number elements", () => {
+        const array3x3 = [
+            [42, 42, 42],
+            [42, 42, 42],
+            [42, 42, 42]
+        ];
+        expect(createMatrix(3, 42)).toEqual(array3x3);
+    });
+    test("return array with multiple object elements", () => {
+        const person = {
+            firstName: "Ada",
+            lastName: "Lovelace"
+        };
+        const array2x2 = [
+            [person, person],
+            [person, person]
+        ];
+        expect(createMatrix(2, person)).toEqual(array2x2);
+    });
 });

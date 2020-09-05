@@ -98,7 +98,21 @@ const isItPrime = n => {
  */
 const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
+  if (typeof n !== 'number') throw new Error("a number is required");
+  if (Math.sign(n) === -1 || Math.sign(n) === 0 || n % 1 !== 0) throw new Error("n must be a positive integer");
   if (fill === undefined) throw new Error("fill is required");
+
+  const arr = [];
+  // outer loop
+  for (let i = 0; i < n; i++) {
+    // build a row
+    const row = [];
+    for (let j = 0; j < n; j++) {
+      row.push(fill);
+    }
+    arr.push(row);
+  }
+  return arr;
 };
 
 /**
