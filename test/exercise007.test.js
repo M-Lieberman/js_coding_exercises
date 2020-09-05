@@ -180,22 +180,23 @@ describe("hexToRGB", () => {
     test("return error with an empty argument", () => {
         expect(() => { hexToRGB(); }).toThrow("hexStr is required");
     });
-    // test("return error with a non string argument", () => {
-    //     expect(() => { hexToRGB(42); }).toThrow("a string is required");
-    //     expect(() => { hexToRGB(['foo']); }).toThrow("a string is required");
-    //     expect(() => { hexToRGB(true); }).toThrow("a string is required");
-    // });
-    // test("return error with invalid hex argument", () => {
-    //     expect(() => { hexToRGB('FF1133'); }).toThrow("a valid hex color code is required");
-    //     expect(() => { hexToRGB('######'); }).toThrow("a valid hex color code is required");
-    //     expect(() => { hexToRGB('#GGGGGG'); }).toThrow("a valid hex color code is required");
-    // });
-
-    // test("return rbg values for valid hex colour codes (not case sensitive)", () => {
-    //     expect(hexToRGB('#FF1133')).toBe("rgb(255,17,51)");
-    //     expect(hexToRGB('#000000')).toBe("rgb(0,0,0)");
-    //     expect(hexToRGB('#FFFFFF')).toBe("rgb(255,255,255)");
-    //     expect(hexToRGB('#00bfff')).toBe("rgb(0,191,255)");
-    // });
+    test("return error with a non hex string argument", () => {
+        expect(() => { hexToRGB(42); }).toThrow("a hex color code is required");
+        expect(() => { hexToRGB(['foo']); }).toThrow("a hex color code is required");
+        expect(() => { hexToRGB(true); }).toThrow("a hex color code is required");
+    });
+    test("return error with invalid hex argument", () => {
+        expect(() => { hexToRGB('FF1133'); }).toThrow("a valid hex color code is required");
+        expect(() => { hexToRGB('#######'); }).toThrow("a valid hex color code is required");
+        expect(() => { hexToRGB('#GGGGGG'); }).toThrow("a valid hex color code is required");
+        expect(() => { hexToRGB('1234ff'); }).toThrow("a valid hex color code is required");
+    });
+    test("return rbg values for valid hex colour codes (not case sensitive)", () => {
+        expect(hexToRGB('#FF1133')).toBe("rgb(255,17,51)");
+        expect(hexToRGB('#ff1133')).toBe("rgb(255,17,51)");
+        expect(hexToRGB('#000000')).toBe("rgb(0,0,0)");
+        expect(hexToRGB('#FFFFFF')).toBe("rgb(255,255,255)");
+        expect(hexToRGB('#00bfff')).toBe("rgb(0,191,255)");
+    });
 });
 
