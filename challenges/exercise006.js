@@ -6,6 +6,7 @@
  */
 const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
+  if (!Array.isArray(arr)) throw new Error("an array is required");
   // loop through array
   // if value multiple of 3 or 5 then add to total
   let total = 0;
