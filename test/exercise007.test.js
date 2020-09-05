@@ -165,3 +165,37 @@ describe("getScreentimeAlertList", () => {
     });
 
 });
+
+/**
+ * This function will receive a hexadecimal color code in the format #FF1133. A hexadecimal code is a number written in hexadecimal notation, i.e. base 16. If you want to know more about hexadecimal notation:
+ * https://www.youtube.com/watch?v=u_atXp-NF6w
+ * For colour codes, the first 2 chars (FF in this case) represent the amount of red, the next 2 chars (11) represent the amound of green, and the last 2 chars (33) represent the amount of blue.
+ * Colours can also be represented in RGB format, using decimal notation.
+ * This function should transform the hex code into an RGB code in the format:
+ * "rgb(255,17,51)"
+ * Hint: You will need to convert each hexadecimal value for R, G and B into its decimal equivalent!
+ * @param {String} str
+ */
+describe("hexToRGB", () => {
+    test("return error with an empty argument", () => {
+        expect(() => { hexToRGB(); }).toThrow("hexStr is required");
+    });
+    // test("return error with a non string argument", () => {
+    //     expect(() => { hexToRGB(42); }).toThrow("a string is required");
+    //     expect(() => { hexToRGB(['foo']); }).toThrow("a string is required");
+    //     expect(() => { hexToRGB(true); }).toThrow("a string is required");
+    // });
+    // test("return error with invalid hex argument", () => {
+    //     expect(() => { hexToRGB('FF1133'); }).toThrow("a valid hex color code is required");
+    //     expect(() => { hexToRGB('######'); }).toThrow("a valid hex color code is required");
+    //     expect(() => { hexToRGB('#GGGGGG'); }).toThrow("a valid hex color code is required");
+    // });
+
+    // test("return rbg values for valid hex colour codes (not case sensitive)", () => {
+    //     expect(hexToRGB('#FF1133')).toBe("rgb(255,17,51)");
+    //     expect(hexToRGB('#000000')).toBe("rgb(0,0,0)");
+    //     expect(hexToRGB('#FFFFFF')).toBe("rgb(255,255,255)");
+    //     expect(hexToRGB('#00bfff')).toBe("rgb(0,191,255)");
+    // });
+});
+

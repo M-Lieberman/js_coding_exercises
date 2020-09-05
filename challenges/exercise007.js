@@ -72,7 +72,6 @@ const getScreentimeAlertList = (users, date) => {
   let result = [];
   users.forEach((user) => {
     const matched = user.screenTime.filter((screentime) => {
-      console.log(new Date(screentime.date).getTime());
       return new Date(date).getTime() === new Date(screentime.date).getTime();
 
     });
