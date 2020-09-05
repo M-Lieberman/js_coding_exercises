@@ -129,7 +129,17 @@ const createMatrix = (n, fill) => {
  */
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
+  if (!Array.isArray(staff)) throw new Error("an array of staff is required");
   if (day === undefined) throw new Error("day is required");
+  if (typeof day !== 'string') throw new Error("day is required");
+  let count = 0;
+  staff.forEach(function (staffMember) {
+    // each row is a staff object
+    if (staffMember.rota.find(d => d === day) !== undefined) {
+      count++;
+    }
+  });
+  return count >= 3;
 };
 
 module.exports = {

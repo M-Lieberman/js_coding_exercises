@@ -4,7 +4,7 @@ const {
     getComplementaryDNA,
     isItPrime,
     createMatrix,
-    // areWeCovered
+    areWeCovered
 } = require("../challenges/exercise006");
 
 // This function will receive an array of numbers and should return the sum
@@ -227,6 +227,74 @@ describe("createMatrix", () => {
             [person, person],
             [person, person]
         ];
-        expect(createMatrix(2, person)).toEqual(array2x2);
+        expect(createMatrix(2,
+            {
+                firstName: "Ada",
+                lastName: "Lovelace"
+            }
+        )).toEqual(array2x2);
+    });
+});
+/**
+ * This function takes an array of staff objects in the format:
+ * [
+ *  { name: "Sally", rota: ["Monday", "Tuesday", "Friday"] },
+ *  { name: "Pedro", rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"] },
+ *  ...etc
+ * ]
+ * and a day of the week. For the café to run successfully, at least 3 staff members are required per day.
+ * The function should return true/false depending on whether there are enough staff scheduled for the given day.
+ * @param {Array} staff
+ * @param {String} day
+ * @returns {Boolean}
+ */
+describe("areWeCovered", () => {
+    test("return error with an empty arguments", () => {
+        const staff = [
+            { name: "Ruby", rota: ["Tuesday"] },
+            { name: "Bob", rota: ["Tuesday"] },
+            { name: "Michael", rota: ["Tuesday"] }
+        ];
+        expect(() => { areWeCovered(); }).toThrow("staff is required");
+        expect(() => { areWeCovered('foo'); }).toThrow("an array of staff is required");
+        expect(() => { areWeCovered(staff, 3); }).toThrow("day is required");
+    });
+    test("return true for minimum staff cover on Tuesday", () => {
+        const staff = [
+            { name: "Ruby", rota: ["Tuesday"] },
+            { name: "Bob", rota: ["Tuesday"] },
+            { name: "Michael", rota: ["Tuesday"] }
+        ];
+        expect(areWeCovered(staff, 'Tuesday')).toBe(true);
+    });
+    test("return true for more than minimum staff cover on Thursday", () => {
+        const staff = [
+            { name: "Sally", rota: ["Monday", "Tuesday", "Thursday", "Friday"] },
+            { name: "Pedro", rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"] },
+            { name: "Ava", rota: ["Monday", "Wednesday", "Thursday", "Friday"] },
+            { name: "Eve", rota: ["Sunday", "Tuesday", "Thursday", "Friday"] },
+            { name: "Wally", rota: ["Saturday", "Monday", "Thursday", "Friday"] }
+        ];
+        expect(areWeCovered(staff, 'Thursday')).toBe(true);
+    });
+    test("return false for empty staff array on Wednesday", () => {
+        expect(areWeCovered([], 'Wednesday')).toBe(false);
+    });
+
+    test("return false for minimum staff cover on Wednesday", () => {
+        const staff = [
+            { name: "Ruby", rota: ["Wednesday"] },
+            { name: "Bob", rota: ["Tuesday"] },
+            { name: "Michael", rota: ["Tuesday"] }
+        ];
+        expect(areWeCovered(staff, 'Wednesday')).toBe(false);
+    });
+    test("return false for no staff cover on Wednesday", () => {
+        const staff = [
+            { name: "Ruby", rota: ["Tuesday"] },
+            { name: "Bob", rota: ["Tuesday"] },
+            { name: "Michael", rota: ["Tuesday"] }
+        ];
+        expect(areWeCovered(staff, 'Wednesday')).toBe(false);
     });
 });
