@@ -42,20 +42,12 @@ describe("sumMultiples", () => {
 // A valid DNA string may contain characters C, G, T or A only.
 describe("isValidDNA", () => {
     test("return error with an empty argument", () => {
-        expect(() => {
-            isValidDNA();
-        }).toThrow("str is required");
+        expect(() => { isValidDNA(); }).toThrow("str is required");
     });
     test("return error with a non string argument", () => {
-        expect(() => {
-            isValidDNA(42);
-        }).toThrow("a string is required");
-        expect(() => {
-            isValidDNA(['foo']);
-        }).toThrow("a string is required");
-        expect(() => {
-            isValidDNA(true);
-        }).toThrow("a string is required");
+        expect(() => { isValidDNA(42); }).toThrow("a string is required");
+        expect(() => { isValidDNA(['foo']); }).toThrow("a string is required");
+        expect(() => { isValidDNA(true); }).toThrow("a string is required");
     });
     test("return true for valid DNA", () => {
         expect(isValidDNA('GATTACA')).toBe(true);

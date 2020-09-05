@@ -130,6 +130,56 @@ const hexToRGB = hexStr => {
  */
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
+  if (!Array.isArray(board)) throw new Error("an array is required");
+  if (board.length !== 3 || board[0].length !== 3) throw new Error("a 3 x 3 array is required");
+
+  // check horizontal
+  for (let i = 0; i < 3; i++) {
+    let crosses = 0;
+    let noughts = 0;
+    for (let j = 0; j < 3; j++) {
+      const cell = board[i][j];
+      if (cell === 'X') {
+        crosses++;
+      } else if (cell === '0') {
+        noughts++;
+      }
+    }
+    if (crosses === 3) {
+      return 'X';
+    } else if (noughts === 3) {
+      return '0';
+    }
+  }
+
+  // check vertical 
+  for (let i = 0; i < 3; i++) {
+    let crosses = 0;
+    let noughts = 0;
+    for (let j = 0; j < 3; j++) {
+      // reversed the i and j co-ordinates to cycle through the columns
+      const cell = board[j][i];
+      if (cell === 'X') {
+        crosses++;
+      } else if (cell === '0') {
+        noughts++;
+      }
+    }
+    if (crosses === 3) {
+      return 'X';
+    } else if (noughts === 3) {
+      return '0';
+    }
+  }
+
+  // check the diagonals
+  const backDiagonal = board[0][0] + board[1][1] + board[2][2];
+  const fwdDiagonal = board[0][2] + board[1][1] + board[2][0];
+  if (backDiagonal === 'XXX' || fwdDiagonal === 'XXX') return 'X';
+  if (backDiagonal === '000' || fwdDiagonal === '000') return '0';
+
+  // if we get here, there is no winner
+  return null;
 };
 
 module.exports = {
