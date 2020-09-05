@@ -29,7 +29,6 @@ const isValidDNA = str => {
   // use regex to shrink the string to 
   let re = new RegExp('[ACGT]*');
   const replaced = str.replace(re, '');
-  console.log("================L:> " + replaced);
   return replaced.length === 0;
 };
 
@@ -40,6 +39,27 @@ const isValidDNA = str => {
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  if (typeof str !== 'string') throw new Error("a string is required");
+
+  function convertDNA(ch) {
+    if (ch === 'A') {
+      return 'T';
+    } else if (ch === 'T') {
+      return 'A';
+    } else if (ch === 'C') {
+      return 'G';
+    } else if (ch === 'G') {
+      return 'C';
+    } else {
+      throw new Error("valid DNA is required");
+    }
+  }
+
+  let res = '';
+  for (let c of str) {
+    res += convertDNA(c);
+  }
+  return res;
 };
 
 /**
