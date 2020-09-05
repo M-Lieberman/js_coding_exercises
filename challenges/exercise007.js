@@ -4,6 +4,10 @@
  */
 const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
+  if (typeof n !== 'number') throw new Error("a number is required");
+  // turn number into an array by converting to a string and converting each digit
+  const numArray = n.toString().split('').map((i) => { return Number(i); });
+  return numArray.reduce((total, e) => total + e, 0);
 };
 
 /**
