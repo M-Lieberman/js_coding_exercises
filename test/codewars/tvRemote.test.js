@@ -9,21 +9,21 @@ describe("TV Remote Control Tests", function () {
         expect(tvRemote("c")).toBe(3);
         expect(tvRemote("f")).toBe(2);
     });
-    // it("example", function () {
-    //     expect(tvRemote("codewars")).toBe(36);
-    // });
-    // it("misc", function () {
-    //     expect(tvRemote("does")).toBe(16);
-    //     expect(tvRemote("your")).toBe(23);
-    //     expect(tvRemote("solution")).toBe(33);
-    //     expect(tvRemote("work")).toBe(20);
-    //     expect(tvRemote("for")).toBe(12);
-    //     expect(tvRemote("these")).toBe(27);
-    //     expect(tvRemote("words")).toBe(25);
-    // });
+    it("example", function () {
+        expect(tvRemote("codewars")).toBe(36);
+    });
+    it("misc", function () {
+        expect(tvRemote("does")).toBe(16);
+        expect(tvRemote("your")).toBe(23);
+        expect(tvRemote("solution")).toBe(33);
+        expect(tvRemote("work")).toBe(20);
+        expect(tvRemote("for")).toBe(12);
+        expect(tvRemote("these")).toBe(27);
+        expect(tvRemote("words")).toBe(25);
+    });
 });
 
-xdescribe("TV Remote Control Tests", function () {
+describe("TV Remote Control Tests", function () {
     test("single character tests", () => {
         expect(tvRemoteCAVersion("a")).toBe(1);
         expect(tvRemoteCAVersion("c")).toBe(3);
