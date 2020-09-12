@@ -84,16 +84,26 @@ Answer = 3 + 5 + 4 + 2 + 7 + 7 + 6 + 2 = 36
     remote.set('/', [7, 4]);
 
     // iterating through the map
-    for (let [key, value] of remote) {
-        console.log(key + ' = ' + value);
-    }
+    // for (let [key, value] of remote) {
+    //     console.log(key + ' = ' + value);
+    // }
 
+    let count = 0;
     // loop through chars in word
     const w = word.split('');
+    let currentPosition = [0, 0];
 
     w.forEach(el => {
-         console.log(el);
+         const found = remote.get(el);
+         if (found == undefined) {
+           throw new Error('Character {' + el + '} not found');
+         }
+         const hDiff = found[0] - currentPosition[0];
+         const vDiff = found[1] - currentPosition[1];
 
+         console.log("h=" + hDiff + ", v=" + vDiff + " : " + found);
+        count += hDiff + vDiff;
+        currentPosition = found;
     //     // cycle through the array
     //     // match the letter 
     //     // subtract current position from last position 
@@ -103,7 +113,7 @@ Answer = 3 + 5 + 4 + 2 + 7 + 7 + 6 + 2 = 36
     });
     // dont' forget to add one for the OK button press
     
-return 1;
+return count + 1;
 }
 
 var tvRemoteCAVersion = function(word) {

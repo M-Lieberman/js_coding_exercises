@@ -6,8 +6,8 @@ const {
 describe("TV Remote Control Tests", function () {
     test("single character tests", () => {
         expect(tvRemote("a")).toBe(1);
-        // expect(tvRemote("c")).toBe(3);
-        expect(tvRemote("f")).toBe(1);
+        expect(tvRemote("c")).toBe(3);
+        expect(tvRemote("f")).toBe(2);
     });
     // it("example", function () {
     //     expect(tvRemote("codewars")).toBe(36);
@@ -27,7 +27,7 @@ xdescribe("TV Remote Control Tests", function () {
     test("single character tests", () => {
         expect(tvRemoteCAVersion("a")).toBe(1);
         expect(tvRemoteCAVersion("c")).toBe(3);
-        expect(tvRemoteCAVersion("f")).toBe(1);
+        expect(tvRemoteCAVersion("f")).toBe(2);
     });
     it("example", function () {
         expect(tvRemoteCAVersion("codewars")).toBe(36);
