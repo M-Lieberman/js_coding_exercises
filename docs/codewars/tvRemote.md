@@ -1,3 +1,5 @@
+[CodeWars TV Remote challenge](https://www.codewars.com/kata/5a5032f4fd56cb958e00007a/train/javascript)
+
 # Background
 My TV remote control has arrow buttons and an OK button.
 
