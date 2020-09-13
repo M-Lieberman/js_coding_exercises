@@ -127,7 +127,6 @@ var tvRemoteCAVersion = function (word) {
       }
     }
   });
-  console.log(coord);
   for (let i = 0; i < coord.length - 1; i++) {
     counter += Math.abs(coord[i][1] - coord[i + 1][1]) + 1 + Math.abs(coord[i][0] - coord[i + 1][0]);
   }
