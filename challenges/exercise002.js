@@ -27,7 +27,7 @@ function countSheep(arr) {
 function hasMPostCode(person) {
   if (person === undefined) throw new Error("person is required");
   // regex for Manchester postcodes
-  let re = new RegExp('^M\\d');
+  const re = new RegExp('^M\\d');
   return re.test(person.address.postCode);
 }
 

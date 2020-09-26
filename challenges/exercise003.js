@@ -38,7 +38,7 @@ function duplicateNumbers(arr1, arr2) {
   if (arr2 === undefined) throw new Error("arr2 is required");
   // return duplicate numbers in ascending order (without duplicates)
   // find matching numbers in arr1
-  let result = arr1.filter(element => arr2.includes(element)).sort();
+  const result = arr1.filter(element => arr2.includes(element)).sort();
   return [...new Set(result)];
 }
 
